@@ -12,7 +12,12 @@ public class Main {
         System.out.println("Get most amounted manager - 1");
         System.out.println("Get all users by manager name - 2");
         System.out.println("Get all managers by dept number - 3");
-
+        //TODO Анастасия с первого ряда
+        System.out.println("Get user by ammount - 4");
+        //Todo Вера
+        System.out.println("Get most result user by manager name - 5");
+        //Todo Алёна
+        System.out.println("Get amount by dept - 6");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
@@ -32,6 +37,13 @@ public class Main {
                     } else {
                         System.out.println(list);
                     }
+                    break;
+                case 3:
+                    System.out.println("Enter dept number");
+                    int number = scanner.nextInt();
+                    Set<Manger> set = getManagerByDept(number, map);
+                    System.out.println(set);
+                    break;
             }
             System.out.println("Choose command");
             System.out.println("Type 0 to close program");
@@ -47,6 +59,15 @@ public class Main {
         return map;
     }
 
+    public static Set<Manger> getManagerByDept(int number, Map<User, Manger> map){
+        Set<Manger> set = new HashSet<>();
+        for (Map.Entry<User, Manger> entry: map.entrySet()){
+            if (entry.getValue().getDept()==number){
+                set.add(entry.getValue());
+            }
+        }
+        return set;
+    }
     public static List<User> getUserByManagerName(Map<User, Manger> map,
                                                   String name){
         List<User> list = new ArrayList<>();
