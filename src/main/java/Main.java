@@ -44,13 +44,37 @@ public class Main {
                     Set<Manger> set = getManagerByDept(number, map);
                     System.out.println(set);
                     break;
+                case 5:
+                    System.out.println("Enter manager name");
+                    scanner.nextLine();
+                    String nameOfManager = scanner.nextLine();
+                    User user = getMostResultUserByManagerName(map, nameOfManager);
+                    System.out.println(user);
+                    break;
+
+
             }
             System.out.println("Choose command");
             System.out.println("Type 0 to close program");
             System.out.println("Get most amounted manager - 1");
             System.out.println("Get all users by manager name - 2");
+            System.out.println("Get most result user by manager name - 5");
             n = scanner.nextInt();
         }
+    }
+
+    public static User getMostResultUserByManagerName (Map<User, Manger> map, String nameOfManager){
+        int result = 0;
+        User user = new User("", "", 0, 0);
+        for (Map.Entry<User, Manger> entry: map.entrySet()){
+            if (entry.getValue().getName().equals(nameOfManager)){
+                if (result < entry.getKey().getSum()){
+                    result = entry.getKey().getSum();
+                    user = entry.getKey();
+                }
+            }
+        }
+        return user;
     }
     public static Map<User, Manger> initAmount(Map<User, Manger> map){
         for (Map.Entry<User, Manger> entry: map.entrySet()){
