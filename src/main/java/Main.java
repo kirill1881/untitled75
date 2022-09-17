@@ -16,6 +16,7 @@ public class Main {
         System.out.println("Get most result user by manager name - 5");
         System.out.println("Get amount by dept - 6");
         System.out.println("Get manager by user name and user lastName 7");
+        System.out.println("Get users by dept number 8");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
@@ -75,7 +76,6 @@ public class Main {
             System.out.println("Get all managers by dept number - 3");
             System.out.println("Get most result user by manager name - 5");
             System.out.println("Get amount by dept - 6");
-            System.out.println("Get manager by user name and user lastName 7");
             n = scanner.nextInt();
         }
     }
@@ -86,7 +86,6 @@ public class Main {
             if (entry.getKey().getName().equals(nameOfUser) && entry.getKey().getLastName().equals(lastNameOfUser)){
                 manager = entry.getValue();
             }
-            break;
         }
         return manager;
     }
