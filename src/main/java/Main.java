@@ -74,6 +74,13 @@ public class Main {
                     Set<User> setOfUsers = getUsersByDeptNumber(map, dept);
                     System.out.println(setOfUsers);
                     break;
+                case 9:
+                    System.out.println("Enter dept number");
+                    scanner.nextLine();
+                    dept = scanner.nextInt();
+                    Map<User, Manger> mapOfUsersAndManagersByDept = getManagersAndUsersByDeptNumber(map, dept);
+                    System.out.println(mapOfUsersAndManagersByDept);
+                    break;
 
 
             }
@@ -86,10 +93,19 @@ public class Main {
             System.out.println("Get amount by dept - 6");
             System.out.println("Get manager by user name and user lastName 7");
             System.out.println("Get users by dept number 8");
+            System.out.println("Get manager ande user by dept number 9");
             n = scanner.nextInt();
         }
     }
 
+    public static Map<User, Manger> getManagersAndUsersByDeptNumber (Map<User, Manger> map, int dept){
+        Map<User, Manger> mapOfUsersAndManagersByDept = new HashMap<>();
+        for (Map.Entry<User, Manger> entry: map.entrySet()) {
+            if (entry.getValue().getDept() == dept)
+                mapOfUsersAndManagersByDept.put(entry.getKey(), entry.getValue());
+        }
+        return mapOfUsersAndManagersByDept;
+    }
     public static Set<User> getUsersByDeptNumber (Map<User, Manger> map, int dept){
         Set<User> setOfUsers = new HashSet<>();
         for (Map.Entry<User, Manger> entry: map.entrySet()){
