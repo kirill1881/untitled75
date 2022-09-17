@@ -15,7 +15,7 @@ public class Main {
         System.out.println("Get user by ammount - 4");
         System.out.println("Get most result user by manager name - 5");
         System.out.println("Get amount by dept - 6");
-        System.out.println("Get manager by user name and user lastName");
+        System.out.println("Get manager by user name and user lastName 7");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
