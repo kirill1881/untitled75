@@ -17,6 +17,7 @@ public class Main {
         System.out.println("Get amount by dept - 6");
         System.out.println("Get manager by user name and user lastName 7");
         System.out.println("Get users by dept number 8");
+        System.out.println("Get manager ande user by dept number 9");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
 
