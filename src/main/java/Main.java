@@ -12,14 +12,14 @@ public class Main {
         System.out.println("Get most amounted manager - 1");
         System.out.println("Get all users by manager name - 2");
         System.out.println("Get all managers by dept number - 3");
-        //TODO Анастасия с первого ряда
         System.out.println("Get user by ammount - 4");
-        //Todo Вера
         System.out.println("Get most result user by manager name - 5");
-        //Todo Алёна
         System.out.println("Get amount by dept - 6");
+        System.out.println("Get manager by user name and user lastName");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+
+
 
         while (n!=0) {
             switch (n) {
