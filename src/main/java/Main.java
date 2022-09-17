@@ -51,6 +51,13 @@ public class Main {
                     User user = getMostResultUserByManagerName(map, nameOfManager);
                     System.out.println(user);
                     break;
+                case 6:
+                    System.out.println("Enter dept number");
+                    number = scanner.nextInt();
+                    int deptAmount = getAmountByDept(number, map);
+                    System.out.println(deptAmount);
+                    break;
+
 
 
             }
@@ -58,11 +65,23 @@ public class Main {
             System.out.println("Type 0 to close program");
             System.out.println("Get most amounted manager - 1");
             System.out.println("Get all users by manager name - 2");
+            System.out.println("Get all managers by dept number - 3");
             System.out.println("Get most result user by manager name - 5");
+            System.out.println("Get amount by dept - 6");
             n = scanner.nextInt();
         }
     }
 
+    public static int getAmountByDept(int number, Map<User, Manger> map) {
+        Set<Manger> set = getManagerByDept(number, map);
+        int deptAmount = 0;
+        for (Manger m : set) {
+            if (m.getDept() == number) {
+                deptAmount += m.getAmount();
+            }
+        }
+        return deptAmount;
+    }
     public static User getMostResultUserByManagerName (Map<User, Manger> map, String nameOfManager){
         int result = 0;
         User user = new User("", "", 0, 0);
