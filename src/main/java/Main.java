@@ -12,14 +12,14 @@ public class Main {
         System.out.println("Get most amounted manager - 1");
         System.out.println("Get all users by manager name - 2");
         System.out.println("Get all managers by dept number - 3");
-        //TODO Анастасия с первого ряда
-        System.out.println("Get user by amount - 4");
-        //Todo Вера
+        System.out.println("Get user by ammount - 4");
         System.out.println("Get most result user by manager name - 5");
-        //Todo Алёна
         System.out.println("Get amount by dept - 6");
+        System.out.println("Get manager by user name and user lastName 7");
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
+
+
 
         while (n!=0) {
             switch (n) {
@@ -44,16 +44,6 @@ public class Main {
                     Set<Manger> set = getManagerByDept(number, map);
                     System.out.println(set);
                     break;
-                case 4:
-                    System.out.println("Enter amount");
-                    int amount = scanner.nextInt();
-                    List<User> users = getUserByAmount(amount, map);
-                    if (users.isEmpty()) {
-                        System.out.println("It is no users with this amount");
-                    } else {
-                        System.out.println(users);
-                    }
-                    break;
                 case 5:
                     System.out.println("Enter manager name");
                     scanner.nextLine();
@@ -76,21 +66,12 @@ public class Main {
             System.out.println("Get most amounted manager - 1");
             System.out.println("Get all users by manager name - 2");
             System.out.println("Get all managers by dept number - 3");
-            System.out.println("Get user by amount - 4");
             System.out.println("Get most result user by manager name - 5");
             System.out.println("Get amount by dept - 6");
             n = scanner.nextInt();
         }
     }
-    public static List<User> getUserByAmount(int amount, Map<User, Manger> map) {
-        List<User> list = new ArrayList<>();
-        for (Map.Entry<User, Manger> entry : map.entrySet()) {
-            if (entry.getKey().getSum() == amount) {
-                list.add(entry.getKey());
-            }
-        }
-        return list;
-    }
+
     public static int getAmountByDept(int number, Map<User, Manger> map) {
         Set<Manger> set = getManagerByDept(number, map);
         int deptAmount = 0;
